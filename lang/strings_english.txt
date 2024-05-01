@@ -1,0 +1,8 @@
+<?PHP
+$s_plugin_BanSpam_title = "Ban Spam";
+$s_plugin_BanSpam_desc  = " Ban Spam via ip- and language check";
+$s_plugin_BanSpam_banspam  = "Ban Spam";
+$s_plugin_BanSpam_language  = "Language issues and notes should be written in (available de-en-fr-es) :";
+$MANTIS_ERROR['ERROR_WRONG_LANGUAGE'] = 'You have used a non-supported language.'; 
+$MANTIS_ERROR['ERROR_USER_IP_BANNED'] = 'Your ip-address has been banned, please contact adminstrator of the site.'; 
+
