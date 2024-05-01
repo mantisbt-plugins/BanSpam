@@ -20,9 +20,8 @@ class BanSpamPlugin extends MantisPlugin  {
 	}
 
 	function init() {
-		event_declare('EVENT_BUGNOTE_CHECK');
 		plugin_event_hook( 'EVENT_REPORT_BUG_DATA', 'check_new_issue' );
-		plugin_event_hook( 'EVENT_BUGNOTE_CHECK', 'check_new_note' );
+		plugin_event_hook( 'EVENT_BUGNOTE_DATA', 'check_new_note' );
 		plugin_event_hook( 'EVENT_MENU_MANAGE', 'managemenu' );
 	}
 	
@@ -54,7 +53,7 @@ class BanSpamPlugin extends MantisPlugin  {
 			return;
 	}
 	
-	function check_new_note($event,$notetext){
+	function check_new_note($event,$notetext,$p_bug_id){
 			// first check if ip-address of user is recorded and check if IP has been banned
 			$continue = check_ip();			
 			// check if post is in accepted language
