@@ -23,6 +23,13 @@ After copying to your webserver:<br>
 - Select Install behind BanSpam 1.00<br>
 - Click on the plugin name for further configuration (se below)<br>
 
+In order to make it work on notes, we need to make a change to core/commands/IssueNoteAddCommand.php.<br>
+Just before the line:<br>
+$this->user_id = auth_get_current_user_id();<br>
+add the following line:<br>
+event_signal( 'EVENT_BUGNOTE_CHECK', $this->text );
+Hopefully this event will be added to Mantis standard.
+
 ## Configuration
 
 - Set language to use for issues/notes (supported en-de-fr-es)
