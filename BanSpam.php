@@ -20,14 +20,23 @@ class BanSpamPlugin extends MantisPlugin  {
 	}
 
 	function init() {
+		event_declare( 'EVENT_LOGIN_CHECK' );
+		event_declare( 'EVENT_SIGNUP_CHECK' );
 		plugin_event_hook( 'EVENT_REPORT_BUG_DATA', 'check_new_issue' );
 		plugin_event_hook( 'EVENT_BUGNOTE_DATA', 'check_new_note' );
 		plugin_event_hook( 'EVENT_MENU_MANAGE', 'managemenu' );
+		plugin_event_hook( 'EVENT_LOGIN_CHECK', 'check_login' );
+		plugin_event_hook( 'EVENT_SIGNUP_CHECK', 'check_signup' );
 	}
 	
 	function config() {
 		return array(
 			'language'		=> 'en',
+			'default'		=> '??',
+			'check_login'	=> OFF,
+			'check_signup'	=> OFF,
+			'contact_mail'	=> 'admin@yoursite.com', 
+			'min_chars'		=> 25,
 			);
 	}
 
@@ -35,6 +44,14 @@ class BanSpamPlugin extends MantisPlugin  {
 		return array('<a href="'. plugin_page( 'manage_banspam_page.php' ) . '">' . plugin_lang_get( 'banspam' ) . '</a>' );
     }
 
+	function check_login($event){
+		$continue = check_ip();
+	}
+
+	function check_signup($event){
+		$continue = check_ip_only();
+	}
+	
 	function check_new_issue($event, $p_issue){
 			// first check if ip-address of user is recorded and check if IP has been banned
 			$continue = check_ip();
@@ -79,7 +96,6 @@ class BanSpamPlugin extends MantisPlugin  {
 				ip_hi				I				DEFAULT NULL,
 				reason				C(255)			DEFAULT NULL,
 				bandate		 		date			DEFAULT NULL
-
 				" ) ),
 			);
     }		

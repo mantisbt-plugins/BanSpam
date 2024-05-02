@@ -29,11 +29,59 @@ print_manage_menu();
 </tr>
 <tr >
 <td class="category" width="60%">
-<?php echo lang_get( 'plugin_BanSpam_language' )?>
+<?php echo plugin_lang_get( 'language' )?>
 </td>
-<td class="center" width="20%">
+<td class="center" width="40%">
 <input type="text" name="language"  value="<?php echo plugin_config_get( 'language' )?>" >
 </td>
+</tr> 
+<tr >
+<td class="category" width="60%">
+<?php echo plugin_lang_get( 'default' )?>
+</td>
+<td class="center" width="40%">
+<input type="text" name="default"  value="<?php echo plugin_config_get( 'default' )?>" >
+</td>
+</tr> 
+<tr >
+<td class="category" width="60%">
+<?php echo plugin_lang_get( 'min_chars' )?>
+</td>
+<td class="center" width="40%">
+<input type="number" name="min_chars"  value="<?php echo plugin_config_get( 'min_chars' )?>" >
+</td>
+</tr> 
+<tr >
+<td class="category" width="60%">
+<?php echo plugin_lang_get( 'contact_mail' )?>
+</td>
+<td class="center" width="40%">
+<input type="text" name="contact_mail"  value="<?php echo plugin_config_get( 'contact_mail' )?>" >
+</td>
+</tr> 
+
+<tr >
+	<td class="category" width="60%">
+		<?php echo plugin_lang_get( 'check_login' )?>
+	</td>
+	<td class="center" width="40%">
+		<label><input type="radio" name='check_login' value="1" <?php echo( ON == plugin_config_get( 'check_login' ) ) ? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'enabled' )?></label>
+			<label><input type="radio" name='check_login' value="0" <?php echo( OFF == plugin_config_get( 'check_login' ) )? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'disabled' )?></label>
+	</td>
+</tr> 
+<tr >
+	<td class="category" width="60%">
+		<?php echo plugin_lang_get( 'check_signup' )?>
+	</td>
+	<td class="center" width="40%">
+		<label><input type="radio" name='check_signup' value="1" <?php echo( ON == plugin_config_get( 'check_signup' ) ) ? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'enabled' )?></label>
+
+		<label><input type="radio" name='check_signup' value="0" <?php echo( OFF == plugin_config_get( 'check_signup' ) )? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'disabled' )?></label>
+	</td>
 </tr> 
 
 

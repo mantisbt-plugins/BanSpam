@@ -1,12 +1,24 @@
 <?php
+	function check_ip_only(){
+		$ip = getUserIpAddr();
+		// Check if IP has been banned
+		$t_query_2 = "select * from {plugin_BanSpam_bannedip} where '$ip' >= ip_lo and '$ip' <= ip_hi ";
+		$t_result_2	= db_query( $t_query_2 );
+		$t_records	= db_num_rows( $t_result_2 );
+		if ( $t_records > 0) {
+			trigger_error( 'ERROR_USER_IP_BANNED', ERROR );
+		}
+		return;
+	}
+
 	function check_ip(){
 		$reporter = auth_get_current_user_id();
 
 		$ip = getUserIpAddr();
-		// is the user recorded with thsi ip-address
+		// is the user recorded with this ip-address
 		$t_query	= "select * from {plugin_BanSpam_userip} where user = $reporter";
 
-		$t_result	= db_query($t_query);
+		$t_result	= db_query( $t_query );
 		$t_records	= db_num_rows( $t_result );
 		if ( $t_records == 0) {
 			// add to db
@@ -85,8 +97,15 @@ function getTextLanguage($text, $default) {
     // clean out the input string - note we don't have any non-ASCII 
     // characters in the word lists... change this if it is not the 
     // case in your language wordlists!
-    $text = preg_replace("/[^A-Za-z]/", ' ', $text);
-      
+    $text = trim( preg_replace("/[^A-Za-z]/", ' ', $text) );
+	
+	// check minimumlength of string since with just one or 2 words, language cannot be detected properly
+    $minlength = plugin_config_get( 'min_char');
+	$length = strlen( $text );
+	if ( $length > $minlength ) {
+			return plugin_config_get( 'language');
+	}
+	
 	// count the occurrences of the most frequent words
     foreach ($supported_languages as $language) {
 		$counter[$language]=0;

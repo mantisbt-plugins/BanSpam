@@ -1,8 +1,36 @@
 <?PHP
-$s_plugin_BanSpam_title = "Ban Spam";
-$s_plugin_BanSpam_desc  = " Ban Spam via ip- and language check";
-$s_plugin_BanSpam_banspam  = "Ban Spam";
-$s_plugin_BanSpam_language  = "Language issues and notes should be written in (available de-en-fr-es) :";
+$s_plugin_BanSpam_title		= "Ban Spam";
+$s_plugin_BanSpam_desc		= " Ban Spam via ip- and language check";
+$s_plugin_BanSpam_banspam	= "Ban Spam";
+$s_plugin_BanSpam_language	= "Language issues and notes should be written in (available de-en-fr-es) :";
+$s_plugin_BanSpam_default	= "If language detection is not fully clear, what is the fall back value ( ?? = abort) :";
+$s_plugin_BanSpam_login		= 'Check ip during logon (requires change to core script)';
+$s_plugin_BanSpam_signup	= 'Check ip during signup (requires change to core script)';
+$s_plugin_BanSpam_manage	= "Management";
+$s_plugin_BanSpam_config	= "Manage user IP's";
+$s_plugin_BanSpam_bannedip	= "Manage Banned IP's";
+$s_plugin_BanSpam_blacklist	= "Import IP Blacklist";
+$s_plugin_BanSpam_user_ip	= "User IP";
+$s_plugin_BanSpam_recorded	= "Recorded";
+$s_plugin_BanSpam_add_ip	= "Add IP-Address";
+$s_plugin_BanSpam_ban_it	= "Ban IP-Address";
+$s_plugin_BanSpam_ip_lo		= "From IP-Address";
+$s_plugin_BanSpam_ip_hi		= "To IP-Address";
+$s_plugin_BanSpam_reason	= "Reason for Ban";
+$s_plugin_BanSpam_add_iprange = "Add IP range";
+$s_plugin_BanSpam_bandate	 = "Date of Ban";
+$s_plugin_BanSpam_automatic	 = "Automatic";
+$s_plugin_BanSpam_remove_ban = "Remove Ban";
+$s_plugin_BanSpam_import_blacklist_file = "Blacklist Import File";
+$s_plugin_BanSpam_col_sep  = "Column seperator";
+$s_plugin_BanSpam_col_sep2  = "Make sure this matches with the content of your CSV file";
+$s_plugin_BanSpam_import  = "Import file";
+$s_plugin_BanSpam_min_chars  = "Minimal characters required for language check";
+$s_plugin_BanSpam_contact_mail  = "Mail address one can contact in case of IP-ban";
+$s_plugin_BanSpam_check_login  = "Check IP already during login";
+$s_plugin_BanSpam_check_signup  = "Check IP already during signup";
+
+
 $MANTIS_ERROR['ERROR_WRONG_LANGUAGE'] = 'You have used a non-supported language.'; 
 $MANTIS_ERROR['ERROR_USER_IP_BANNED'] = 'Your ip-address has been banned, please contact adminstrator of the site.'; 
 
