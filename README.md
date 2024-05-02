@@ -1,4 +1,3 @@
-<b>This plugin is still under development</b><br>
 
 # BanSpam plugin for Mantisbt
 
