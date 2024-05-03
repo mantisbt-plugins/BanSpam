@@ -10,7 +10,7 @@ The BanSpam plugin tries to block spammers:
 - Ensuring issues/notes can only be raised in one(1) language
 - Offering the option to block ip (ranges)
 
-Blacklists can be uploaded in bulk using csv file.
+Blacklists can be uploaded in bulk using csv file.<br>
 
 ## Requirements
 
@@ -47,6 +47,14 @@ $continue = event_signal( 'EVENT_SIGNUP_CHECK' );
 - Do you want to check during signup?
 - What is the contact e-mail (if any)?
 
+# Bulk upload ip-ranges
+
+The directory doc contains a sample csv file.<br>
+Be aware that the import will skip the first line, so please leave the header row in place.<br>
+Also make sure that you choose the correct column separator while using that function.<br>
+Default it is set to a comma but it just as well can be a semicolon.<br>
+An error message will popup in case you use the wrong separator.
+
 ## License
 
 Released under the [GPL v3 license](http://opensource.org/licenses/GPL-3.0).
@@ -62,3 +70,4 @@ Please visit https://github.com/mantisbt-plugins/BanSpam
 ## Changes
 
 Version 1.00	02-05-2024	Initial release<br>
+Version 1.01	03-05-2024	Added sample import file and adjusted the readme
