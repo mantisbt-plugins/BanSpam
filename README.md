@@ -1,7 +1,7 @@
 
 # BanSpam plugin for Mantisbt
 
-Version 1.00
+Version 1.01
 Copyright 2024 Cas Nuy
 
 ## Description
