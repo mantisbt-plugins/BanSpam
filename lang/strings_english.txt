@@ -29,7 +29,7 @@ $s_plugin_BanSpam_min_chars  = "Minimal characters required for language check";
 $s_plugin_BanSpam_contact_mail  = "Mail address one can contact in case of IP-ban";
 $s_plugin_BanSpam_check_login  = "Check IP already during login";
 $s_plugin_BanSpam_check_signup  = "Check IP already during signup";
-
+$s_plugin_BanSpam_config		= "Configuration";
 
 $MANTIS_ERROR['ERROR_WRONG_LANGUAGE'] = 'You have used a non-supported language.'; 
 $MANTIS_ERROR['ERROR_USER_IP_BANNED'] = 'Your ip-address has been banned, please contact adminstrator of the site.'; 

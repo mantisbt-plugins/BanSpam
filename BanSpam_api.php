@@ -100,10 +100,11 @@ function getTextLanguage($text, $default) {
     $text = trim( preg_replace("/[^A-Za-z]/", ' ', $text) );
 	
 	// check minimumlength of string since with just one or 2 words, language cannot be detected properly
-    $minlength = plugin_config_get( 'min_char');
+    $minlength	= plugin_config_get( 'min_chars');
+	$language	= plugin_config_get( 'language');
 	$length = strlen( $text );
 	if ( $length > $minlength ) {
-			return plugin_config_get( 'language');
+			return $language ;
 	}
 	
 	// count the occurrences of the most frequent words
