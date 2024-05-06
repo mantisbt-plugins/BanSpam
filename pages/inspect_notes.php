@@ -4,6 +4,12 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( 'config.php' );
 print_manage_menu();
+$sql1 = "select * from {plugin_BanSpam_inspect}  where bug_id = 0 ";
+$res1		= db_query( $sql1 );
+$nbr1	= db_num_rows($res1);
+$sql2 = "select * from {plugin_BanSpam_inspect}  where bug_id <> 0 ";
+$res2		= db_query( $sql2 );
+$nbr2	= db_num_rows($res2);
 $link1 = "plugin.php?page=BanSpam/manage_banspam_page.php";
 $link2 = "plugin.php?page=BanSpam/manage_banned_ip_page.php";
 $link3 = "plugin.php?page=BanSpam/import_blacklist.php";
@@ -38,9 +44,9 @@ $link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php print_link_button( $link3, plugin_lang_get( 'blacklist' ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<?php print_link_button( $link4, plugin_lang_get( 'inspect_issues' ) );?>
+<?php print_link_button( $link4, plugin_lang_get( 'inspect_issues' )." (".$nbr1.")"  );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<?php print_link_button( $link5, plugin_lang_get( 'inspect_notes' ) );?>
+<?php print_link_button( $link5, plugin_lang_get( 'inspect_notes' ) ." (".$nbr2.")" );?>
 </td>
 </tr>
 
@@ -59,7 +65,7 @@ while ( $row = db_fetch_array( $result ) ) {
 	?>
 	<tr>
 	<td><div align="center"><?php  echo user_get_username( $row["user_id"] ) ?>	</div></td>
-	<td><div align="center"><?php echo $row["bug_id"] ?></div></td>
+	<td><div align="center"><?php echo string_get_bug_view_link( $row["bug_id"] ) ?></div></td>
 	<td><div align="center"><textarea rows = "3" cols = "150" readonly><?php echo $row['data']  ?></textarea></div></td>
 	<td><div align="center"><?PHP	echo $row["stored"]?>	</div></td>
 	<td><div align="center">
