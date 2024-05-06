@@ -33,7 +33,10 @@
 		$t_result_2	= db_query($t_query_2);
 		$t_records	= db_num_rows( $t_result_2 );
 		if ( $t_records > 0) {
-			trigger_error( 'ERROR_USER_IP_BANNED', ERROR );
+			$link = "plugin.php?page=BanSpam/messages.php&message_id=";
+			$link .= 5;
+			print_header_redirect( $link );
+			exit;
 		}
 		return;
 	}
@@ -101,10 +104,15 @@ function getTextLanguage($text, $default) {
 	
 	// check minimumlength of string since with just one or 2 words, language cannot be detected properly
     $minlength	= plugin_config_get( 'min_chars');
+	    $minlengthok	= plugin_config_get( 'min_chars_ok');
 	$language	= plugin_config_get( 'language');
 	$length = strlen( $text );
-	if ( $length > $minlength ) {
+	if ( $length < $minlength ) {
+		if ( ON == $minlengthok ) {
 			return $language ;
+		} else {
+			return 'xx';
+		}
 	}
 	
 	// count the occurrences of the most frequent words
@@ -142,4 +150,8 @@ function getTextLanguage($text, $default) {
         } 
     }
     return $default;
+}
+
+function object_to_array($object) { 
+	return (array) $object; 
 }

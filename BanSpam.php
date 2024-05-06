@@ -11,7 +11,7 @@ class BanSpamPlugin extends MantisPlugin  {
 	function register() {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'desc' );
-		$this->version = '1.01';
+		$this->version = '1.10';
 		$this->requires = array('MantisCore' => '2.3.0-dev',);
 		$this->page      = 'config';
 		$this->author = 'Cas Nuy';
@@ -37,6 +37,7 @@ class BanSpamPlugin extends MantisPlugin  {
 			'check_signup'	=> OFF,
 			'contact_mail'	=> 'admin@yoursite.com', 
 			'min_chars'		=> 25,
+			'min_chars_ok'	=> OFF,	
 			);
 	}
 
@@ -65,7 +66,14 @@ class BanSpamPlugin extends MantisPlugin  {
 			$text .= $p_issue->additional_information;
 			$detect = getTextLanguage($text, '??');
 			if ( $detect <> plugin_config_get( 'language') ) {
-				trigger_error( 'ERROR_WRONG_LANGUAGE', ERROR );
+				$user_id = auth_get_current_user_id();
+				$data =  base64_encode( serialize( $p_issue ) );
+				$t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, 0 , '$data', now() )"; 
+				$t_result	= db_query( $t_sql );
+				$link = "plugin.php?page=BanSpam/messages.php&message_id=";
+				$link .= 3;
+				print_header_redirect( $link );
+				exit;
 			}
 			return;
 	}
@@ -76,7 +84,13 @@ class BanSpamPlugin extends MantisPlugin  {
 			// check if post is in accepted language
 			$detect = getTextLanguage($notetext, '??');
 			if ( $detect <> plugin_config_get( 'language') ) {
-				trigger_error( 'ERROR_WRONG_LANGUAGE', ERROR );
+				$user_id = auth_get_current_user_id();
+				$t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, $p_bug_id, '$notetext' , now() )"; 
+				$t_result	= db_query( $t_sql );
+				$link = "plugin.php?page=BanSpam/messages.php&message_id=";
+				$link .= 1;
+				print_header_redirect( $link );
+				exit;
 			}
 			return;
 	}
@@ -93,9 +107,16 @@ class BanSpamPlugin extends MantisPlugin  {
 				array('CreateTableSQL', array(plugin_table('bannedip'), "
 				id  				I   			NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,
 				ip_lo   			C(15)   		DEFAULT NULL,
-				ip_hi				I				DEFAULT NULL,
+				ip_hi				C(15)			DEFAULT NULL,
 				reason				C(255)			DEFAULT NULL,
 				bandate		 		date			DEFAULT NULL
+				" ) ),
+				array('CreateTableSQL', array(plugin_table('inspect'), "
+				id  				I   			NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,
+				user_id   			I   			DEFAULT NULL,
+				bug_id   			I   			DEFAULT NULL,
+				data				Blob			DEFAULT NULL,
+				stored		 		date			DEFAULT NULL
 				" ) ),
 			);
     }		

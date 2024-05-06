@@ -53,6 +53,17 @@ print_manage_menu();
 </tr> 
 <tr >
 <td class="category" width="60%">
+<?php echo plugin_lang_get( 'min_chars_ok' )?>
+</td>
+<td class="center" width="40%">
+<label><input type="radio" name='min_chars_ok' value="1" <?php echo( ON == plugin_config_get( 'min_chars_ok' ) ) ? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'enabled' )?></label>
+			<label><input type="radio" name='min_chars_ok' value="0" <?php echo( OFF == plugin_config_get( 'min_chars_ok' ) )? 'checked="checked" ' : ''?>/>
+			<?php echo lang_get( 'disabled' )?></label>
+</td>
+</tr> 
+<tr >
+<td class="category" width="60%">
 <?php echo plugin_lang_get( 'contact_mail' )?>
 </td>
 <td class="center" width="40%">

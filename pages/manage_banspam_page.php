@@ -7,7 +7,8 @@ print_manage_menu();
 $link1 = "plugin.php?page=BanSpam/manage_banspam_page.php";
 $link2 = "plugin.php?page=BanSpam/manage_banned_ip_page.php";
 $link3 = "plugin.php?page=BanSpam/import_blacklist.php";
-
+$link4 = "plugin.php?page=BanSpam/inspect_issues.php";
+$link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -33,11 +34,15 @@ $link3 = "plugin.php?page=BanSpam/import_blacklist.php";
 <tr>
 
 <td class="form-title" colspan="7" >
-<?php print_link_button( $link1, plugin_lang_get( 'config'  ) );?>
+<?php print_link_button( $link1, plugin_lang_get( 'user_ip'  ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php print_link_button( $link2, plugin_lang_get( 'bannedip' ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php print_link_button( $link3, plugin_lang_get( 'blacklist' ) );?>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<?php print_link_button( $link4, plugin_lang_get( 'inspect_issues' ) );?>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<?php print_link_button( $link5, plugin_lang_get( 'inspect_notes' ) );?>
 </td>
 </tr>
 
@@ -97,9 +102,9 @@ while ( $row = db_fetch_array( $result ) ) {
 	<td><div align="center"><?PHP	echo $row["recorded"]?>	</div></td>
 	<td><div align="center">
 	<?PHP
-	$link4 = "plugin.php?page=BanSpam/ban_this_ip.php&user_ip=";
-	$link4 .= $row["user_ip"]  ;
-	print_link_button( $link4, plugin_lang_get( 'ban_it' ) );
+	$link6 = "plugin.php?page=BanSpam/ban_this_ip.php&user_ip=";
+	$link6 .= $row["user_ip"]  ;
+	print_link_button( $link6, plugin_lang_get( 'ban_it' ) );
 	?>
 	</div></td>
 	</tr>

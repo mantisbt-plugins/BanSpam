@@ -26,11 +26,21 @@ $s_plugin_BanSpam_col_sep  = "Column seperator";
 $s_plugin_BanSpam_col_sep2  = "Make sure this matches with the content of your CSV file";
 $s_plugin_BanSpam_import  = "Import file";
 $s_plugin_BanSpam_min_chars  = "Minimal characters required for language check";
+$s_plugin_BanSpam_min_chars_ok  = "Approve if below character threshold";
 $s_plugin_BanSpam_contact_mail  = "Mail address one can contact in case of IP-ban";
 $s_plugin_BanSpam_check_login  = "Check IP already during login";
 $s_plugin_BanSpam_check_signup  = "Check IP already during signup";
 $s_plugin_BanSpam_config		= "Configuration";
-
-$MANTIS_ERROR['ERROR_WRONG_LANGUAGE'] = 'You have used a non-supported language.'; 
+$s_plugin_BanSpam_inspect_issues	= "Inspect Issues";
+$s_plugin_BanSpam_inspect_notes		= "Inspect Notes";
+$s_plugin_BanSpam_delete_note		= "Delete Note";
+$s_plugin_BanSpam_release_note		= "Release Note";
+$s_plugin_BanSpam_delete_issue		= "Delete Issue";
+$s_plugin_BanSpam_release_issue		= "Release Issue";
+$s_plugin_BanSpam_ok		= "Continue";
+$s_plugin_BanSpam_message		= "Spam Check Message";
+$s_plugin_BanSpam_message_1		= 'You have used a non-supported language in your note. Your entry will be reviewed by the adminstration.'; 
+$s_plugin_BanSpam_message_3		= 'Issue has been quarantained because of language and will be inspected by admin';
+$s_plugin_BanSpam_message_5		= 'Your ip-address has been banned, you are not allowed to post. Please contact adminstrator of the site.'; 
 $MANTIS_ERROR['ERROR_USER_IP_BANNED'] = 'Your ip-address has been banned, please contact adminstrator of the site.'; 
 

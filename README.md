@@ -23,7 +23,7 @@ After copying to your webserver:<br>
 - Start Mantis as administrator<br>
 - Select manage<br>
 - Select manage Plugins<br>
-- Select Install behind BanSpam 1.00<br>
+- Select Install behind BanSpam 1.10<br>
 - Click on the plugin name for further configuration (se below)<br>
 
 In case you want to check already during login<br>
@@ -62,6 +62,7 @@ Released under the [GPL v3 license](http://opensource.org/licenses/GPL-3.0).
 ## Todo
 
 Allow for multiple languages.
+Handling attachments of quarantained items
 
 ## Support
 
@@ -70,4 +71,6 @@ Please visit https://github.com/mantisbt-plugins/BanSpam
 ## Changes
 
 Version 1.00	02-05-2024	Initial release<br>
-Version 1.01	03-05-2024	Added sample import file and adjusted the readme
+Version 1.01	03-05-2024	Added sample import file and adjusted the readme<br>
+Version 1.10	06-05-2024	Added quarantaining of new issues/notes for admin review<br>
+							Added interface for management of quarantained items

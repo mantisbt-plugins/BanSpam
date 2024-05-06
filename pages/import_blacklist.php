@@ -15,6 +15,8 @@ print_manage_menu();
 $link1 = "plugin.php?page=BanSpam/manage_banspam_page.php";
 $link2 = "plugin.php?page=BanSpam/manage_banned_ip_page.php";
 $link3 = "plugin.php?page=BanSpam/import_blacklist.php";
+$link4 = "plugin.php?page=BanSpam/inspect_issues.php";
+$link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 $import_file = "";
 ?>
 <div class="col-md-12 col-xs-12">
@@ -34,15 +36,22 @@ $import_file = "";
 <form action="<?php echo plugin_page( 'loadcsv' ) ?>" method="post" action="plugins/BanSpam/pages/loadcsv" enctype="multipart/form-data">
 <tr >
 </tr>
-<br>
+<tr >
+<td class="category" colspan="5">
+</td>
+</tr>
 <tr>
 
 <td class="form-title" colspan="7" >
-<?php print_link_button( $link1, plugin_lang_get( 'config'  ) );?>
+<?php print_link_button( $link1, plugin_lang_get( 'user_ip'  ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php print_link_button( $link2, plugin_lang_get( 'bannedip' ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <?php print_link_button( $link3, plugin_lang_get( 'blacklist' ) );?>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<?php print_link_button( $link4, plugin_lang_get( 'inspect_issues' ) );?>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<?php print_link_button( $link5, plugin_lang_get( 'inspect_notes' ) );?>
 </td>
 </tr>
 <form method="post" enctype="multipart/form-data" action="<?php echo plugin_page('loadcsv')?> ">
