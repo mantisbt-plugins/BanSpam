@@ -4,30 +4,29 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( 'config.php' );
 print_manage_menu();
+$t_plugins = plugin_find_all();
 ?>
-
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
 <div class="form-container" > 
-<br/>
+<br>
 <form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
 <div class="widget-box widget-color-blue2">
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
 		<i class="ace-icon fa fa-text-width"></i>
-		<?php echo  plugin_lang_get( 'config' )?>
+		<?php echo  plugin_lang_get( 'config' ).": ".plugin_lang_get( 'title' )." : ". $t_plugins['BanSpam']->version?>
 	</h4>
 </div>
 <div class="widget-body">
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped">  
-
 <tr>
 <td align="left">
 </td>
 </tr>
-<tr >
+<tr>
 <td class="category" width="60%">
 <?php echo plugin_lang_get( 'language' )?>
 </td>
@@ -43,7 +42,7 @@ print_manage_menu();
 <input type="text" name="default"  value="<?php echo plugin_config_get( 'default' )?>" >
 </td>
 </tr> 
-<tr >
+<tr>
 <td class="category" width="60%">
 <?php echo plugin_lang_get( 'min_chars' )?>
 </td>
@@ -62,7 +61,7 @@ print_manage_menu();
 			<?php echo lang_get( 'disabled' )?></label>
 </td>
 </tr> 
-<tr >
+<tr>
 <td class="category" width="60%">
 <?php echo plugin_lang_get( 'contact_mail' )?>
 </td>
@@ -70,8 +69,7 @@ print_manage_menu();
 <input type="text" name="contact_mail"  value="<?php echo plugin_config_get( 'contact_mail' )?>" >
 </td>
 </tr> 
-
-<tr >
+<tr>
 	<td class="category" width="60%">
 		<?php echo plugin_lang_get( 'check_login' )?>
 	</td>
@@ -82,7 +80,7 @@ print_manage_menu();
 			<?php echo lang_get( 'disabled' )?></label>
 	</td>
 </tr> 
-<tr >
+<tr>
 	<td class="category" width="60%">
 		<?php echo plugin_lang_get( 'check_signup' )?>
 	</td>
@@ -94,9 +92,6 @@ print_manage_menu();
 			<?php echo lang_get( 'disabled' )?></label>
 	</td>
 </tr> 
-
-
-
 </table>
 </div>
 </div>
@@ -108,7 +103,5 @@ print_manage_menu();
 </form>
 </div>
 </div> 
-
 <?php
 layout_page_end();
-

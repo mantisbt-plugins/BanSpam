@@ -4,17 +4,17 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( 'config.php' );
 print_manage_menu();
-$sql1 = "select * from {plugin_BanSpam_inspect}  where bug_id = 0 ";
-$res1		= db_query( $sql1 );
+$sql1 	= "select * from {plugin_BanSpam_inspect}  where bug_id = 0 ";
+$res1	= db_query( $sql1 );
 $nbr1	= db_num_rows($res1);
-$sql2 = "select * from {plugin_BanSpam_inspect}  where bug_id <> 0 ";
-$res2		= db_query( $sql2 );
+$sql2	= "select * from {plugin_BanSpam_inspect}  where bug_id <> 0 ";
+$res2	= db_query( $sql2 );
 $nbr2	= db_num_rows($res2);
-$link1 = "plugin.php?page=BanSpam/manage_banspam_page.php";
-$link2 = "plugin.php?page=BanSpam/manage_banned_ip_page.php";
-$link3 = "plugin.php?page=BanSpam/import_blacklist.php";
-$link4 = "plugin.php?page=BanSpam/inspect_issues.php";
-$link5 = "plugin.php?page=BanSpam/inspect_notes.php";
+$link1 	= "plugin.php?page=BanSpam/manage_banspam_page.php";
+$link2 	= "plugin.php?page=BanSpam/manage_banned_ip_page.php";
+$link3 	= "plugin.php?page=BanSpam/import_blacklist.php";
+$link4 	= "plugin.php?page=BanSpam/inspect_issues.php";
+$link5	= "plugin.php?page=BanSpam/inspect_notes.php";
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -37,7 +37,6 @@ $link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 </tr>
 <br>
 <tr>
-
 <td class="form-title" colspan="7" >
 <?php print_link_button( $link1, plugin_lang_get( 'user_ip'  ) );?>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -50,7 +49,6 @@ $link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 <?php print_link_button( $link5, plugin_lang_get( 'inspect_notes' )." (".$nbr2.")" );?>
 </td>
 </tr>
-
 <tr class="row-category">
 <td><div align="center"><?php echo lang_get( 'username' ) ?></div></td>
 <td><div align="center"><?php echo lang_get( 'summary' ) ?></div></td>
@@ -58,7 +56,6 @@ $link5 = "plugin.php?page=BanSpam/inspect_notes.php";
 <td><div align="center"><?php echo plugin_lang_get( 'recorded' ) ?></div></td>
 <td></td>
 </tr>
-
 <?php
 $sql = "select * from {plugin_BanSpam_inspect} where bug_id = 0 order by stored";
 $result = db_query($sql);

@@ -108,9 +108,11 @@ while ( $row = db_fetch_array( $result ) ) {
 	<td><div align="center"><?PHP	echo $row["recorded"]?>	</div></td>
 	<td><div align="center">
 	<?PHP
-	$link6 = "plugin.php?page=BanSpam/ban_this_ip.php&user_ip=";
-	$link6 .= $row["user_ip"]  ;
-	print_link_button( $link6, plugin_lang_get( 'ban_it' ) );
+	if ( !$banned ) {
+		$link6 = "plugin.php?page=BanSpam/ban_this_ip.php&user_ip=";
+		$link6 .= $row["user_ip"]  ;
+		print_link_button( $link6, plugin_lang_get( 'ban_it' ) );
+	}
 	?>
 	</div></td>
 	</tr>

@@ -1,7 +1,7 @@
 
 # BanSpam plugin for Mantisbt
 
-Version 1.01
+Version 1.10
 Copyright 2024 Cas Nuy
 
 ## Description
@@ -9,7 +9,7 @@ Copyright 2024 Cas Nuy
 The BanSpam plugin tries to block spammers:
 - Ensuring issues/notes can only be raised in one(1) language
 - Offering the option to block ip (ranges)
-
+- Quarantining of newe issues/notes
 Blacklists can be uploaded in bulk using csv file.<br>
 
 ## Requirements
@@ -24,7 +24,7 @@ After copying to your webserver:<br>
 - Select manage<br>
 - Select manage Plugins<br>
 - Select Install behind BanSpam 1.10<br>
-- Click on the plugin name for further configuration (se below)<br>
+- Click on the plugin name for further configuration (see below)<br>
 
 In case you want to check already during login<br>
 Please add a line to login.php. just after<br>
@@ -38,12 +38,17 @@ $f_captcha = mb_strtolower( trim( $f_captcha ) );<br>
 Line to insert:<br>
 $continue = event_signal( 'EVENT_SIGNUP_CHECK' );
 
+## Documentation
+
+In the 'doc' directory, you find a Word document describing this plugin.
+
 ## Configuration options
 
 - Set language to use for issues/notes (supported en-de-fr-es)
 - Set fallback language in case of ambiguous result (?? means abort, otherwise set to language defined above)
 - What is the minimum number of characters to activate language check?
-- Do you wat to check during logon yes/no?
+- Automatic approve text with less characters thatn the minimum stated above
+- Do you want to check during logon yes/no?
 - Do you want to check during signup?
 - What is the contact e-mail (if any)?
 

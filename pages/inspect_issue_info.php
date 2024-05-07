@@ -16,9 +16,13 @@ while ( $row = db_fetch_array( $result ) ) {
 	$username 		= user_get_username( $row["user_id"] );
 	$stored			= $row["stored"];
 	$duedate		= $bugdata->due_date;
-	$project 		=  project_get_name ($bugdata->project_id);
-	$category 		=  category_get_name ($bugdata->category_id);
+	$project 		= project_get_name ($bugdata->project_id);
+	$category 		= category_get_name ($bugdata->category_id);
 }
+$link6	= "plugin.php?page=BanSpam/inspect_issues_action.php&action=D&id=";
+$link6 .= $id  ;
+$link7	= "plugin.php?page=BanSpam/inspect_issues_action.php&action=R&id=";
+$link7 .= $id  ;
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -42,7 +46,6 @@ while ( $row = db_fetch_array( $result ) ) {
 </tr>
 <br>
 <tr>
-
 <td class="form-title" colspan="7" >
 </td>
 </tr>
@@ -87,6 +90,14 @@ while ( $row = db_fetch_array( $result ) ) {
    <input type="submit" class="button" value="<?php echo plugin_lang_get( 'ok' ) ?>" />
    </td>
  </tr>
+ <tr>
+ <td></td>
+ <td><div align="center">
+ <?php
+print_link_button( $link6, plugin_lang_get( 'delete_issue' ) );
+print_link_button( $link7, plugin_lang_get( 'release_issue' ) );
+?>
+</div><td>
 </table>
 </div>
 </div>
