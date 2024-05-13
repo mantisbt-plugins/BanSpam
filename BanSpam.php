@@ -11,7 +11,7 @@ class BanSpamPlugin extends MantisPlugin  {
 	function register() {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'desc' );
-		$this->version = '1.10';
+		$this->version = '1.11';
 		$this->requires = array('MantisCore' => '2.3.0-dev',);
 		$this->page      = 'config';
 		$this->author = 'Cas Nuy';
@@ -68,8 +68,11 @@ class BanSpamPlugin extends MantisPlugin  {
 			if ( $detect <> plugin_config_get( 'language') ) {
 				$user_id = auth_get_current_user_id();
 				$data =  base64_encode( serialize( $p_issue ) );
-				$t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, 0 , '$data', now() )"; 
-				$t_result	= db_query( $t_sql );
+				// $t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, 0 , '$data', now() )"; 
+				// $t_result	= db_query( $t_sql );
+				$t_query = 'insert into  {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values (' . db_param() . ', ' . db_param() . ', ' . db_param() . ', ' . db_param() . ' )';
+				$now =  date("Y/m/d") ;
+				db_query( $t_query, array($user_id, 0 , $data , $now ) );
 				$link = "plugin.php?page=BanSpam/messages.php&message_id=";
 				$link .= 3;
 				print_header_redirect( $link );
@@ -85,8 +88,12 @@ class BanSpamPlugin extends MantisPlugin  {
 			$detect = getTextLanguage($notetext, '??');
 			if ( $detect <> plugin_config_get( 'language') ) {
 				$user_id = auth_get_current_user_id();
-				$t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, $p_bug_id, '$notetext' , now() )"; 
-				$t_result	= db_query( $t_sql );
+				db_param_push();
+				$t_query = 'insert into  {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values (' . db_param() . ', ' . db_param() . ', ' . db_param() . ', ' . db_param() . ' )';
+				$now =  date("Y/m/d") ;
+				db_query( $t_query, array($user_id, $p_bug_id, $notetext , $now ) );
+		//		$t_sql =  "insert into {plugin_BanSpam_inspect} (user_id, bug_id, data, stored) values ( $user_id, $p_bug_id, '$notetext' , now() )"; 
+		//		$t_result	= db_query( $t_sql );
 				$link = "plugin.php?page=BanSpam/messages.php&message_id=";
 				$link .= 1;
 				print_header_redirect( $link );

@@ -1,7 +1,7 @@
 
 # BanSpam plugin for Mantisbt
 
-Version 1.10
+Version 1.11
 Copyright 2024 Cas Nuy
 
 ## Description
@@ -78,4 +78,5 @@ Please visit https://github.com/mantisbt-plugins/BanSpam
 Version 1.00	02-05-2024	Initial release<br>
 Version 1.01	03-05-2024	Added sample import file and adjusted the readme<br>
 Version 1.10	06-05-2024	Added quarantaining of new issues/notes for admin review<br>
-							Added interface for management of quarantained items
+							Added interface for management of quarantained items<br>
+Version 1.11	13-05-2024	Fixed issue with curly brackets
