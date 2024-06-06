@@ -10,8 +10,8 @@ The BanSpam plugin tries to block spammers:
 - Ensuring issues/notes can only be raised in one(1) language
 - Offering the option to block ip (ranges)
 - Quarantining of newe issues/notes
-Issues/notes can, during language check, automatically allowed based upon a set number of issues/notes in the DB.<br>
-Blacklists can be uploaded in bulk using csv file.<br>
+- Issues/notes can, during language check, automatically allowed based upon a set number of issues/notes in the DB.<br>
+- Blacklists can be uploaded in bulk using csv file.<br>
 
 ## Requirements
 
