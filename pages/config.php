@@ -63,6 +63,22 @@ $t_plugins = plugin_find_all();
 </tr> 
 <tr>
 <td class="category" width="60%">
+<?php echo plugin_lang_get( 'min_issues' )?>
+</td>
+<td class="center" width="40%">
+<input type="number" name="min_issues"  value="<?php echo plugin_config_get( 'min_issues' )?>" >
+</td>
+</tr> 
+<tr>
+<td class="category" width="60%">
+<?php echo plugin_lang_get( 'min_notes' )?>
+</td>
+<td class="center" width="40%">
+<input type="number" name="min_notes"  value="<?php echo plugin_config_get( 'min_notes' )?>" >
+</td>
+</tr> 
+<tr>
+<td class="category" width="60%">
 <?php echo plugin_lang_get( 'contact_mail' )?>
 </td>
 <td class="center" width="40%">

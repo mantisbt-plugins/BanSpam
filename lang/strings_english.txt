@@ -43,5 +43,7 @@ $s_plugin_BanSpam_message				= "Spam Check Message";
 $s_plugin_BanSpam_message_1				= 'You have used a non-supported language in your note. Your entry will be reviewed by the adminstration.'; 
 $s_plugin_BanSpam_message_3				= 'Issue has been quarantained because of language and will be inspected by admin';
 $s_plugin_BanSpam_message_5				= 'Your ip-address has been banned, you are not allowed to post. Please contact adminstrator of the site.'; 
+$s_plugin_BanSpam_min_issues  			= "Minimal issues required for automatic approval (language related)";
+$s_plugin_BanSpam_min_notes  			= "Minimal notes required for automatic approval (language related)";
 $MANTIS_ERROR['ERROR_USER_IP_BANNED']	= 'Your ip-address has been banned, please contact adminstrator of the site.'; 
 

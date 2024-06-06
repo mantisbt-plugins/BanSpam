@@ -10,6 +10,9 @@ $f_check_signup		= gpc_get_int( 'check_signup',OFF );
 $f_contact_mail		= gpc_get_string( 'contact_mail','admin@yoursite.com' );
 $f_min_chars		= gpc_get_int( 'min_chars', 25 );
 $f_min_chars_ok		= gpc_get_int( 'min_chars_ok', OFF );
+$f_min_issues		= gpc_get_int( 'min_issues', 5 );
+$f_min_notes		= gpc_get_int( 'min_notes', 5 );
+
 // update results
 plugin_config_set( 'language', $f_language );
 plugin_config_set( 'default', $f_default );

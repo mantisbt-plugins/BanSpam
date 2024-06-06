@@ -1,7 +1,7 @@
 
 # BanSpam plugin for Mantisbt
 
-Version 1.11
+Version 1.20
 Copyright 2024 Cas Nuy
 
 ## Description
@@ -10,6 +10,7 @@ The BanSpam plugin tries to block spammers:
 - Ensuring issues/notes can only be raised in one(1) language
 - Offering the option to block ip (ranges)
 - Quarantining of newe issues/notes
+Issues/notes can, during language check, automatically allowed based upon a set number of issues/notes in the DB.<br>
 Blacklists can be uploaded in bulk using csv file.<br>
 
 ## Requirements
@@ -51,6 +52,9 @@ In the 'doc' directory, you find a Word document describing this plugin.
 - Do you want to check during logon yes/no?
 - Do you want to check during signup?
 - What is the contact e-mail (if any)?
+- What is the minimum number of issues to allow approval always (language check)?
+- What is the minimum number of notes to allow approval always  (language check)?
+
 
 # Bulk upload ip-ranges
 
@@ -79,4 +83,5 @@ Version 1.00	02-05-2024	Initial release<br>
 Version 1.01	03-05-2024	Added sample import file and adjusted the readme<br>
 Version 1.10	06-05-2024	Added quarantaining of new issues/notes for admin review<br>
 							Added interface for management of quarantained items<br>
-Version 1.11	13-05-2024	Fixed issue with curly brackets
+Version 1.11	13-05-2024	Fixed issue with curly brackets<br>
+Version 1.20	06-06-2024	Added options to "always allow" after a set number of issues/notes (language check).

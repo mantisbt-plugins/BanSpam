@@ -155,3 +155,19 @@ function getTextLanguage($text, $default) {
 function object_to_array($object) { 
 	return (array) $object; 
 }
+
+function getnr_issues(){
+	$reporter	= auth_get_current_user_id();
+	$t_sql		= "select * from {bug} where reporter_id=$reporter";
+	$t_res		= db_query($t_sql);
+	$t_records	= db_num_rows( $t_res );
+	return $t_records ;
+}
+
+function getnr_notes(){
+	$reporter	= auth_get_current_user_id();
+	$t_sql		= "select * from {bugnote} where reporter_id=$reporter";
+	$t_res		= db_query($t_sql);
+	$t_records	= db_num_rows( $t_res );
+	return $t_records ;
+}
